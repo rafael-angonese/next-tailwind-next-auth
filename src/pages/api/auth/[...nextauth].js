@@ -16,5 +16,21 @@ export default NextAuth({
 
     jwt: {
         secret: process.env.SECRET
+    },
+
+    callbacks: {
+        redirect: async url => {
+            return Promise.resolve(url);
+        }
     }
+
+    // pages: {
+    //     signIn: {
+    //         callbackUrl: '/home',
+    //     },
+    //     // signOut: '/auth/signout',
+    //     // error: '/auth/error', // Error code passed in query string as ?error=
+    //     // verifyRequest: '/auth/verify-request', // (used for check email message)
+    //     // newUser: null // If set, new users will be directed here on first sign in
+    //   }
 });
